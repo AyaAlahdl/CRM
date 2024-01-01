@@ -1,0 +1,32 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- Your template content here -->
+ 
+<div class="card border-primary-subtle mb-3" style="max-width: 20rem;">
+    <div class="card-header"><i class="fa fa-address-card-o" aria-hidden="true"></i> &nbsp; Record </div>
+    <div class="card-body">
+        <div class="card-header"> <h4 class="card-title">{{record.first_name|upper}} {{record.last_name|upper}}</h4></div>
+     <br>
+      <p class="card-text">ID: {{record.id}}</p> 
+      <p class="card-text">Email: {{record.email}}</p>
+      <p class="card-text">Phone: {{record.phone}}</p>
+      <p class="card-text">Address: {{record.address}}</p>
+      <p class="card-text">City: {{record.city}}</p>
+      <p class="card-text">Country: {{record.country}}</p>
+      <p class="card-text">Date: {{record.creation_date}}</p>
+    </div>
+    <br>
+</div>
+
+    <a href="{% url 'dashboard' %}"  class="btn btn-secondary">Return </a>
+    &nbsp;
+    <a href="{% url 'update-record' record.id %}"  class="btn btn-secondary">Update record</a>
+    &nbsp;
+    <a href="{% url 'delete-record' record.id %}"  class="btn btn-danger">Delete &nbsp; </a>
+    &nbsp;
+    <br>
+    <br>
+{% endblock %}
